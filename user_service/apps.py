@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class UserServiceConfig(AppConfig):
+class UserService(AppConfig):
     name = 'user_service'
