@@ -24,7 +24,7 @@ class User(models.Model):
     last_name = models.CharField(max_length=50)
     email = models.EmailField(max_length=100)
     role = models.ManyToManyField(Role)
-    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True)
+    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
