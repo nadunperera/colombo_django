@@ -9,15 +9,15 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'id', 'first_name', 'last_name', 'email', 'role', 'lead_source', 'created_at', 'updated_at',)
 
 
-class RoleSerializer(serializers.ModelSerializer):
+class RoleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Role
-        fields = ('url', 'id', 'role_name', 'created_at', 'updated_at',)
+        fields = ('url', 'id', 'role_name', 'users', 'created_at', 'updated_at',)
 
 
-class LeadSourceSerializer(serializers.ModelSerializer):
+class LeadSourceSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = LeadSource
-        fields = ('url', 'id', 'source_name', 'created_at', 'updated_at')
+        fields = ('url', 'id', 'source_name', 'users', 'created_at', 'updated_at')

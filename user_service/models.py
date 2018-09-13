@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Role(models.Model):
-    role_name = models.CharField(max_length=50)
+    role_name = models.CharField(max_length=50, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -11,7 +11,7 @@ class Role(models.Model):
 
 
 class LeadSource(models.Model):
-    source_name = models.CharField(max_length=100)
+    source_name = models.CharField(max_length=50, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -22,9 +22,9 @@ class LeadSource(models.Model):
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=100)
-    role = models.ManyToManyField(Role)
-    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True, blank=True)
+    email = models.EmailField(max_length=100, unique=True)
+    role = models.ManyToManyField(Role, related_name='users')
+    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True, blank=True, related_name='users')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
