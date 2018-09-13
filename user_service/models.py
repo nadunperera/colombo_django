@@ -20,8 +20,16 @@ class LeadSource(models.Model):
 
 
 class User(models.Model):
+    AGE_CHOICES = (
+        (1, '15-25'),
+        (2, '26-35'),
+        (3, '36-50'),
+        (4, '51+'),
+    )
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    age = models.PositiveSmallIntegerField(choices=AGE_CHOICES)
     email = models.EmailField(max_length=100, unique=True)
     role = models.ManyToManyField(Role, related_name='users')
     lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True, blank=True, related_name='users')
