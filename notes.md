@@ -51,3 +51,10 @@
 ----- business_partner
 --- created_at
 --- updated_at
+
+- EOI Model
+--- user
+----- property
+----- lot
+----- sales_agent
+----- second_sales_agent
