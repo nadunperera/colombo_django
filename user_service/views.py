@@ -14,8 +14,8 @@ class RoleView(viewsets.ModelViewSet):
     queryset = Role.objects.all()
     serializer_class = RoleSerializer
 
-    def destroy(self, request, pk=None):
-        queryset = Role.objects.filter(role_name=self.get_object()).first().users.first()
+    def destroy(self, request, pk):
+        queryset = Role.objects.get(pk=pk).users.first()
         if not queryset:
             self.perform_destroy(self.get_object())
             return Response({'status': 'ok', 'description': 'role deleted.'})

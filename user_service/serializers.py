@@ -13,7 +13,7 @@ class RoleSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Role
-        fields = ('url', 'id', 'role_name', 'users', 'created_at', 'updated_at',)
+        fields = ('url', 'id', 'users', 'created_at', 'updated_at',)
 
 
 class LeadSourceSerializer(serializers.HyperlinkedModelSerializer):

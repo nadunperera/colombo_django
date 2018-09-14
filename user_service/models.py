@@ -2,12 +2,22 @@ from django.db import models
 
 
 class Role(models.Model):
-    role_name = models.CharField(max_length=50, unique=True)
+    ROLE_CHOICES = (
+        (1, 'Administrator'),
+        (2, 'Sales Agent'),
+        (3, 'Business Partner'),
+        (4, 'Introducer'),
+        (5, 'BDM'),
+        (6, 'Accountant'),
+        (7, 'Acquisitions'),
+        (8, 'Client'),
+    )
+    id = models.PositiveSmallIntegerField(choices=ROLE_CHOICES, primary_key=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.role_name
+        return self.get_id_display()
 
 
 class LeadSource(models.Model):
