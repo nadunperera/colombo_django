@@ -42,7 +42,8 @@ class User(models.Model):
     age = models.PositiveSmallIntegerField(choices=AGE_CHOICES)
     email = models.EmailField(max_length=100, unique=True)
     role = models.ManyToManyField(Role, related_name='users')
-    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT, null=True, blank=True, related_name='users')
+    lead_source = models.ForeignKey(LeadSource, on_delete=models.PROTECT,
+                                    null=True, blank=True, related_name='users')
     mobile_number = models.PositiveIntegerField(unique=True)
     office_number = models.PositiveIntegerField()
     address = models.CharField(max_length=100)
