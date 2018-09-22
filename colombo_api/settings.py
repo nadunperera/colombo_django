@@ -73,7 +73,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'colombo_api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
